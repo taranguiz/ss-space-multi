@@ -1,0 +1,41 @@
+# YAML parameter file for SS Model runs
+
+saving:
+  save_pickle: True                      # save final topography as pickle
+  save_ascii: True                       # save final topography as ASCII file - for re-import to landlab
+  model_name: 'fzw0'                     # model name for naming outputs - ztopo, avgZ, displacement, movie
+
+time:
+  dt: 1                                # timestep in years
+  tmax: 10      #10000                      # total time in years
+
+grid:
+  xmax: 1000                            # x grid dimension in meters
+  ymax: 500                             # y grid dimension in meters
+  dxy: 1.0                              # grid step in meters
+
+geomorph:
+  kappa: 0.01                           # hillslope diffusivity; bob says this is good value for DV alluvium. see Nash, Hanks papers. m2/yr diffusivity / transport coefficient for soil diffusion
+  K_sp: .003                            # stream power for FastscapeEroder
+  threshold: 0.00005                    # threshold for FastscapeEroder
+  
+strike-slip:
+  slip_interval: 1 #666   #2000.          # how often an earthquake occurs [years]
+  total_slip: 10.   #30     #300.          # total slip for entire model time [meters]
+  #slip_rate: .003                       # slip rate [m/yr]
+  slip_type: 'characteristic'            # slip type for calc slip regime function. options are characteristic, creep, random_time, random_slip, random_random
+  control: False                         # make a model with no tectonics to compare how landscape acts without perturbations
+  uplift_rate: .001                      # background relative rock uplift rate [m/yr]
+  std: 0                               # standard deviation for calcSlipRegime with random_std. same time units as slip_interval
+  seed: 123456                           # seed np.random with this number for COV sampling
+  slip_regime:   # to load a specific slip_regime pickle object created earlier. leave blank for None.
+
+ofd:
+  fault_zone_width: 0.000001                  # define width of fault zone (ofd zone) in meters. use 0.000001 for none b/c otherwise get divide by zero error. (distance from fault on either side) [is this half or total? --> total, but not actually used. only used to get ystar = fzw/5]
+
+plotting:
+  figsize: !!python/tuple [10,8]                       # size of grid plots
+  shrink: .35                            # amount of colorbar shrinkage for plots (0-1). 1 = not shrunk. 0 = nonexistent.
+  limits: !!python/tuple [0,20]                        # elevation limits for grid plots
+  plots: 100                               # how often to save a frame for the movie. 1 = every timestep.
+  plot_inits: False                      # whethere or not to show initial condition plots

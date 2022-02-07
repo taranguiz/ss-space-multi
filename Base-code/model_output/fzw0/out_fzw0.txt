@@ -1,0 +1,16 @@
+saving into: /Users/joshwolpert/Desktop/ESPIn_2021/Tectonics/Base-code/model_output/fzw0
+dt: 1
+tmax: 10
+dxy: 1.0
+kappa: 0.01
+Ksp: 0.003
+threshold: 5e-05
+slip type: characteristic
+saving frame every 100 timesteps
+
+slip per event is 1.0 meters
+COV is 0.0
+--- start time: 2021-06-14 21:09:42 ---
+iteration 0
+--- run time: 0.18 minutes ---
+--- end time: 2021-06-14 21:09:52 ---

@@ -1,0 +1,8 @@
+README.txt
+setup.py
+src/slip.egg-info/PKG-INFO
+src/slip.egg-info/SOURCES.txt
+src/slip.egg-info/dependency_links.txt
+src/slip.egg-info/not-zip-safe
+src/slip.egg-info/requires.txt
+src/slip.egg-info/top_level.txt
